@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>DocEstate Demo</title>
+    </head>
+
+    <body>
+        <h1>Persisted Real Estates</h1>
+
+        <table id="blogTable" th:border="1" th:cellpadding="10">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Real Estate</th>
+                <th>Address</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="realEstate: ${realEstateList}">
+                    <td th:text="${realEstate.id}"></td>
+                    <td th:text="${realEstate.name}"></td>
+                    <td th:text="${realEstate.address}"></td>
+                    <td>
+                        <a th:href="@{/edit/{id}(id=${realEstate.id})}">Edit</a><br/>
+                        <a th:href="@{/delete/{id}(id=${realEstate.id})}">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                    <td>
+                       <a th:href="@{/edit}">Add new</a><br/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><a th:href="@{/logout}">Logout</a></p>
+    </body>
+</html>

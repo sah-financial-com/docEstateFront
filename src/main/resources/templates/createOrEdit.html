@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Create or edit Real Estate</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+
+    <body>
+        <h1>Create or edit Real Estate</h1>
+
+        <form action="#" th:action="@{/persist}" th:object="${realEstate}" method="post">
+            <p><input type="hidden" th:field="*{id}" /></p>
+            <p>Real Estate: <input type="text" th:field="*{name}" size="100" /></p>
+            <p>Address: <input type="text" th:field="*{address}" size="100" /></p>
+            <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        </form>
+    </body>
+</html>
